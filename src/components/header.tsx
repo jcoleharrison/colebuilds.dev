@@ -11,11 +11,18 @@ const Header = () => {
       mx={3}
       fontWeight={800}
       fontSize={'.9rem'}
-      color="#000000"
+      color={'#4e4d4e'}
       underline="none"
       key={link.label}
       href={link.href}
       target={link?.target ?? '_blank'}
+      sx={{
+      transition: 'color 0.3s ease, transform 0.3s ease',
+      '&:hover': {
+      color: '#000000',
+      transform: 'scale(1.5)',
+      },
+      }}
     >
       {link.label}
     </Link>

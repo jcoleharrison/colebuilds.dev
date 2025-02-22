@@ -31,6 +31,7 @@ const FeaturedCard = (props: Props) => {
             height="192"
             image={props.imageLink}
             alt="Featured Project Image"
+            style={{ objectFit: 'contain'}}
           />
           <Fade in={isActive}>
             <Box
