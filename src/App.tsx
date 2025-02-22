@@ -5,7 +5,7 @@ import SearchableTimeline from './components/searchable-timeline';
 
 function App() {
   return (
-    <Container maxWidth="lg">
+    <Container style={{ maxWidth: '1000px' }}>
       <Header />
       <FeaturedBuilds />
       <SearchableTimeline />

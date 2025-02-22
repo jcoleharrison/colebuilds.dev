@@ -8,8 +8,9 @@ const Header = () => {
 
   const links = linksData.map((link) => (
     <Link
-      mx={4}
-      fontWeight={600}
+      mx={3}
+      fontWeight={800}
+      fontSize={'.9rem'}
       color="#000000"
       underline="none"
       key={link.label}
@@ -43,11 +44,13 @@ const Header = () => {
     >
       <Box
         display="flex"
-        justifyContent="space-between"
+        justifyContent="flex-start"
         alignItems="center"
         minHeight={'47px'}
       >
-        <a href="/">temp label</a>
+        <Link href="/" underline="none">
+          <img src="/colebuilds-dev.png" alt="Cole Builds" style={{ height: '30px', width: 'auto' }} />
+        </Link>
       </Box>
       <Box display={{ xs: 'none', md: 'block' }}>{links}</Box>
       <Box display={{ xs: 'block', md: 'none' }}>

@@ -23,13 +23,13 @@ const FeaturedBuilds = () => {
 
   return (
     <>
-      <Box pt={5} pb={2} {...flexBoxStyle}>
-        <Typography mb={1} variant="h2">
+      <Box pt={8} pb={2} {...flexBoxStyle}>
+        <Typography mb={1} variant="h2" fontWeight={850}>
           build-in-public log
         </Typography>
         <Typography
           fontSize={'1.25rem'}
-          fontWeight={300}
+          fontWeight={400}
           color="#81878b"
           mb={5}
         >
@@ -38,7 +38,7 @@ const FeaturedBuilds = () => {
       </Box>
 
       <Box {...flexBoxStyle}>
-        <Typography mb={2} variant="h3">
+        <Typography mb={2} variant="h3" fontWeight={1000}>
           Featured Builds
         </Typography>
 
