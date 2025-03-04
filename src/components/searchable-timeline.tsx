@@ -32,15 +32,17 @@ const SearchableTimeline = () => {
     fetchData();
   }, []);
 
-  const filteredTimelineData = timelineData.filter((item) => {
-    const matchesSearch = item.title
-      .toLowerCase()
-      .includes(search.toLowerCase());
-    const matchesTags =
-      selectedTags.length === 0 ||
-      selectedTags.some((tag) => item.tags?.includes(tag));
-    return matchesSearch && matchesTags;
-  });
+  const filteredTimelineData = timelineData
+    .filter((item) => {
+      const matchesSearch = item.title
+        .toLowerCase()
+        .includes(search.toLowerCase());
+      const matchesTags =
+        selectedTags.length === 0 ||
+        selectedTags.some((tag) => item.tags?.includes(tag));
+      return matchesSearch && matchesTags;
+    })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   const emptyState = filteredTimelineData.length === 0 && (
     <Box mt={5} textAlign={'center'}>
