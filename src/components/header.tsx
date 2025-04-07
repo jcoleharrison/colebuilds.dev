@@ -5,26 +5,29 @@ import { linksData } from '../static-data/header-links-data';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-
   const links = linksData.map((link) => (
     <Link
-      mx={3}
+      mx={1.5}
       fontWeight={800}
       fontSize={'.9rem'}
       color={'#4e4d4e'}
       underline="none"
-      key={link.label}
+      key={link.href}
       href={link.href}
       target={link?.target ?? '_blank'}
       sx={{
-      transition: 'color 0.3s ease, transform 0.3s ease',
-      '&:hover': {
-      color: '#000000',
-      transform: 'scale(1.5)',
-      },
+        transition: 'color 0.3s ease, transform 0.3s ease',
+        '&:hover': {
+          color: '#000000',
+          transform: 'scale(1.5)',
+        },
       }}
     >
-      {link.label}
+      <img
+        src={link.logo}
+        alt={link.href}
+        style={{ height: '35px', width: '35px' }}
+      />
     </Link>
   ));
 
