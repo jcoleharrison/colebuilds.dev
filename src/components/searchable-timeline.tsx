@@ -7,6 +7,7 @@ import TimelineNode, { TimelineItem } from '../ui-components/timeline-node';
 import { useEffect, useState } from 'react';
 import { app } from '../firebase';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import { timelineData as staticTimelineData } from '../static-data/timeline-data';
 
 const SearchableTimeline = () => {
   const [timelineData, setTimelineData] = useState<TimelineItem[]>([]);
@@ -15,17 +16,12 @@ const SearchableTimeline = () => {
   const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = () => {
       try {
-        const db = getFirestore(app);
-        const docRef = doc(db, 'timeline-collection', 'WLBArczV0UloTJokEoAa');
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          setTimelineData(docSnap.data().timelineItems);
-        }
+      setTimelineData(staticTimelineData);
       } catch (e) {
-        console.log(e);
-        setError(true);
+      console.log(e);
+      setError(true);
       }
     };
 
