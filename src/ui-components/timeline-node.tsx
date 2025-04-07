@@ -68,7 +68,13 @@ const TimelineNode = (props: Props) => {
       </TimelineSeparator>
       <TimelineContent>
         {titleNode(props.link)}
-        <Typography fontSize={'0.87rem'}>{props.description}</Typography>
+        <Typography fontSize={'0.87rem'}>
+          <span
+            dangerouslySetInnerHTML={{
+              __html: props.description,
+            }}
+          />
+        </Typography>
         <Box my={2} display="flex" flexWrap="wrap">
           {props.tags?.map((tag) => (
             <Chip
