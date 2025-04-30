@@ -5,8 +5,6 @@ import { filterGroups } from '../static-data/filter-groups-data';
 import { Timeline } from '@mui/lab';
 import TimelineNode, { TimelineItem } from '../ui-components/timeline-node';
 import { useEffect, useState } from 'react';
-import { app } from '../firebase';
-import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { timelineData as staticTimelineData } from '../static-data/timeline-data';
 
 const SearchableTimeline = () => {
