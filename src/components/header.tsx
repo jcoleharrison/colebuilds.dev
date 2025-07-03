@@ -14,7 +14,7 @@ const Header = () => {
       underline="none"
       key={link.href}
       href={link.href}
-      target={link?.target ?? '_blank'}
+      // target={link?.target ?? '_blank'}
       sx={{
         transition: 'color 0.3s ease, transform 0.3s ease',
         '&:hover': {
