@@ -57,7 +57,7 @@ export const timelineData = [
     title: "GPT2 from Scratch (Multi-GPU FSDP)",
     description:
       "Implemented GPT2 from the ground up in pytorch: causal transformer language model, tokenizer, optimizer schedules, fully-sharded distributed data parallel (FSDP), mixed precision training, kernel fusion, FlashAttention, gradient clipping & accumulation",
-    link: "https://github.com/jcoleharrison/gpt-from-scratch",
+    link: "https://x.com/cole__ai/status/1940906309257150574",
     tags: ["large language models", "experiment"],
   },
   {
