@@ -8,6 +8,6 @@ export const linksData: LinkData[] = [
   { logo: "/logos/twitter.png", href: "https://x.com/cole__ai" },
   {
     logo: "/logos/linkedin.png",
-    href: "https://www.linkedin.com/in/cole-harrison-0b8b17155/",
+    href: "https://www.linkedin.com/in/cole-harrison-ai",
   },
 ];

@@ -9,40 +9,30 @@ export const filterGroups = [
   }
   */
 
-  {
-    label: "type",
-    filters: ["public", "private"],
-  },
+  // {
+  //   label: "type",
+  //   filters: ["public", "private"],
+  // },
   {
     label: "categories",
-    filters: ["prototype", "experiment", "production", "research", "personal"],
+    filters: ["prototype", "experiment", "research", "prod"],
   },
   {
     label: "domain",
     filters: [
+      "computer vision",
+      "embodied ai",
+      "reinforcement learning",
+      "robotics",
       "ai agents",
       "large language models",
-      "multimodal models",
-      "computer vision",
-      "reinforcement learning",
-      "generative models",
-      "transformers",
+      "multimodal",
       "nlp",
-      "embodied ai",
-      "robotics",
-      "mlops & infrastructure",
-      "data engineering",
-      "crypto & blockchain",
-      // "speech & audio",
-      // "recommendation systems",
-      // "time series",
-      // "anomaly detection",
-      // "graph neural networks",
-      // "federated learning",
+      "miscellaneous",
     ],
   },
   {
     label: "format",
-    filters: ["codebase", "video", "blog post", "paper", "podcast"],
+    filters: ["codebase", "blog post", "paper"],
   },
 ];
