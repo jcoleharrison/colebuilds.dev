@@ -1,5 +1,3 @@
-import { Description } from "@mui/icons-material";
-
 export const timelineData = [
   {
     date: "12/27/2024",
