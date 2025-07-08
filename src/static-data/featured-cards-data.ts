@@ -9,7 +9,7 @@ export const cardData = [
   {
     title: "Crypto Foundation Model Fine-tuning",
     description:
-      "Fine-tuned a time series foundation model (TimesFM) on crypto price data.",
+      "Fine-tune (TimesFM), a time series foundation model, to predict macro crypto price fluctuations.",
     imageLink: "/solana.png",
     externalLink: "https://x.com/cole__ai/status/1930336027010331057",
   },
