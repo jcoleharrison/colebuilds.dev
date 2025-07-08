@@ -43,6 +43,7 @@ export const timelineData = [
     description:
       "Simple autograd system from scratch in Python to refresh on the mechanics of backprop",
     tags: ["experiment"],
+    link: "https://x.com/cole__ai/status/1899823156078002354",
   },
   {
     date: "06/04/2025",
