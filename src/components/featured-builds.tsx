@@ -23,26 +23,87 @@ const FeaturedBuilds = () => {
 
   return (
     <>
-      <Box pt={8} pb={2} {...flexBoxStyle}>
-        <Typography mb={1} variant="h2" fontWeight={850}>
+      <Box pt={10} pb={4} {...flexBoxStyle}>
+        <Typography 
+          mb={2} 
+          variant="h2" 
+          fontWeight={900}
+          sx={{
+            background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            textAlign: 'center',
+            animation: 'fadeIn 0.8s ease-out',
+          }}
+        >
           build-in-public log
         </Typography>
         <Typography
-          fontSize={'1.25rem'}
+          fontSize={'1.125rem'}
           fontWeight={400}
-          color="#81878b"
-          mb={5}
+          color="text.secondary"
+          mb={6}
+          sx={{
+            textAlign: 'center',
+            maxWidth: '600px',
+            lineHeight: 1.8,
+            animation: 'fadeIn 0.8s ease-out 0.2s',
+            animationFillMode: 'both',
+          }}
         >
-          some of my tools and experiments
+          A collection of tools, experiments, and projects built with modern web technologies
         </Typography>
       </Box>
 
-      <Box {...flexBoxStyle}>
-        <Typography mb={2} variant="h3" fontWeight={1000}>
-          Featured Builds
-        </Typography>
+      <Box {...flexBoxStyle} mb={8}>
+        <Box
+          sx={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 1,
+            mb: 4,
+            padding: '8px 24px',
+            borderRadius: '100px',
+            background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%)',
+            border: '1px solid rgba(37, 99, 235, 0.2)',
+            animation: 'fadeIn 0.8s ease-out 0.4s',
+            animationFillMode: 'both',
+          }}
+        >
+          <Box
+            sx={{
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
+              animation: 'pulse 2s ease-in-out infinite',
+            }}
+          />
+          <Typography 
+            variant="h3" 
+            fontWeight={700}
+            sx={{
+              fontSize: '1.5rem',
+              background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Featured Builds
+          </Typography>
+        </Box>
 
-        <Grid2 mt={2} container spacing={2} columns={{ xs: 1, sm: 1, md: 3 }}>
+        <Grid2 
+          container 
+          spacing={3} 
+          columns={{ xs: 1, sm: 1, md: 3 }}
+          sx={{
+            animation: 'fadeIn 0.8s ease-out 0.6s',
+            animationFillMode: 'both',
+          }}
+        >
           {cards}
         </Grid2>
       </Box>
