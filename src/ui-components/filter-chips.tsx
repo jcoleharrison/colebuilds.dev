@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Chip, Typography } from '@mui/material';
 
 type FilterGroup = {
@@ -18,12 +19,22 @@ const FilterChips = (props: Props) => {
     { primary: '#c3ab6d5a', active: '#c3ab6d5a' },
   ];
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const tag = e.currentTarget.textContent;
-    if (tag && props.selectedTags.includes(tag)) {
+  const handleToggle = (tag: string) => {
+    if (props.selectedTags.includes(tag)) {
       props.setSelectedTags(props.selectedTags.filter((t) => t !== tag));
-    } else if (tag) {
+    } else {
       props.setSelectedTags([...props.selectedTags, tag]);
+    }
+  };
+
+  const handleClick = (tag: string) => () => {
+    handleToggle(tag);
+  };
+
+  const handleKeyDown = (tag: string) => (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleToggle(tag);
     }
   };
 
@@ -42,10 +53,15 @@ const FilterChips = (props: Props) => {
         {filterGroup.filters.map((filter) => (
           <Box
             key={filter}
+            role="checkbox"
+            aria-checked={props.selectedTags.includes(filter)}
+            tabIndex={0}
             sx={{
               ':hover': { cursor: 'pointer' },
+              outline: 'none',
             }}
-            onClick={handleClick}
+            onClick={handleClick(filter)}
+            onKeyDown={handleKeyDown(filter)}
           >
             <Chip
               label={filter}

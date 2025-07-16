@@ -73,15 +73,15 @@ const Header = () => {
       <Box display={{ xs: 'none', md: 'flex' }} alignItems="center">
         {links}
         {/* Dark mode toggle */}
-        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+        <IconButton aria-label="Toggle colour mode" sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
           {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>
       </Box>
       <Box display={{ xs: 'flex', md: 'none' }} alignItems="center">
-        <IconButton sx={{ mr: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+        <IconButton aria-label="Toggle colour mode" sx={{ mr: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
           {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>
-        <IconButton onClick={() => setOpen(true)}>
+        <IconButton aria-label="Open navigation menu" onClick={() => setOpen(true)}>
           <MenuIcon />
         </IconButton>
         {drawer}

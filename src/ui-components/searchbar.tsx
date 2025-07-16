@@ -27,9 +27,10 @@ const Searchbar = (props: Props) => {
           placeholder="Type here to search"
           size="small"
           value={props.search}
+          inputProps={{ 'aria-label': 'Search timeline items' }}
         />
         {props.search.length > 0 && (
-          <IconButton onClick={() => props.setSearch('')} size="small">
+          <IconButton aria-label="Clear search" onClick={() => props.setSearch('')} size="small">
             <Close />
           </IconButton>
         )}

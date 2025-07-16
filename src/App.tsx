@@ -6,7 +6,7 @@ import Footer from './components/footer';
 
 function App() {
   return (
-    <Container style={{ maxWidth: '1000px' }}>
+    <Container id="main-content" role="main" style={{ maxWidth: '1000px' }}>
       <Header />
       <FeaturedBuilds />
       <SearchableTimeline />

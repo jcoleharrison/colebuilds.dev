@@ -24,7 +24,7 @@ const FeaturedBuilds = () => {
   return (
     <>
       <Box pt={8} pb={2} {...flexBoxStyle}>
-        <Typography mb={1} variant="h2" fontWeight={850}>
+        <Typography component="h1" mb={1} variant="h2" fontWeight={850}>
           build-in-public log
         </Typography>
         <Typography

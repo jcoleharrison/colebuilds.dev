@@ -20,11 +20,15 @@ const FeaturedCard = (props: Props) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <Card sx={{ height: '100%', boxShadow: '0 0 2rem rgba(0,0,0,.1)' }}>
-      <div
-        onMouseOver={() => setIsActive(true)}
-        onMouseLeave={() => setIsActive(false)}
-      >
+    <Card
+      sx={{ height: '100%', boxShadow: '0 0 2rem rgba(0,0,0,.1)' }}
+      tabIndex={0}
+      onFocus={() => setIsActive(true)}
+      onBlur={() => setIsActive(false)}
+      onMouseOver={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+    >
+      <div>
         <Box position={'relative'}>
           <CardMedia
             component="img"
@@ -55,6 +59,7 @@ const FeaturedCard = (props: Props) => {
                   target="_blank"
                   variant="contained"
                   color="inherit"
+                  aria-label={`Visit external link for ${props.title}`}
                 >
                   See More
                 </Button>
