@@ -1,5 +1,8 @@
 import { Container } from '@mui/material';
 import { Suspense, lazy } from 'react';
+import ErrorBoundary from './components/error-boundary';
+import FeaturedBuildsSkeleton from './ui-components/featured-builds-skeleton';
+import TimelineSkeleton from './ui-components/timeline-skeleton';
 
 const Header = lazy(() => import('./components/header'));
 const FeaturedBuilds = lazy(() => import('./components/featured-builds'));
@@ -9,18 +12,29 @@ const Footer = lazy(() => import('./components/footer'));
 function App() {
   return (
     <Container id="main-content" role="main" style={{ maxWidth: '1000px' }}>
-      <Suspense fallback={null}>
-        <Header />
-      </Suspense>
-      <Suspense fallback={null}>
-        <FeaturedBuilds />
-      </Suspense>
-      <Suspense fallback={null}>
-        <SearchableTimeline />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={null}>
+          <Header />
+        </Suspense>
+      </ErrorBoundary>
+
+      <ErrorBoundary fallback={<FeaturedBuildsSkeleton />}>
+        <Suspense fallback={<FeaturedBuildsSkeleton />}>
+          <FeaturedBuilds />
+        </Suspense>
+      </ErrorBoundary>
+
+      <ErrorBoundary fallback={<TimelineSkeleton />}>
+        <Suspense fallback={<TimelineSkeleton />}>
+          <SearchableTimeline />
+        </Suspense>
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+      </ErrorBoundary>
     </Container>
   );
 }

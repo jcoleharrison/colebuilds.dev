@@ -1,10 +1,12 @@
-import { StrictMode, useMemo, useState, FC } from 'react';
+import { StrictMode, useMemo, useState, FC, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.scss';
 import App from './App.tsx';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { getTheme } from './theme.tsx';
 import { ColorModeContext } from './color-mode-context';
+import { analytics } from './firebase';
+import { logEvent } from 'firebase/analytics';
 
 const Root: FC = () => {
   const prefersDark =
@@ -15,6 +17,13 @@ const Root: FC = () => {
   const [mode, setMode] = useState<'light' | 'dark'>(prefersDark ? 'dark' : 'light');
 
   const theme = useMemo(() => getTheme(mode), [mode]);
+
+  // Log initial page view once
+  useEffect(() => {
+    if (analytics) {
+      logEvent(analytics, 'page_view');
+    }
+  }, []);
 
   const colorMode = {
     toggleColorMode: () => setMode((prev) => (prev === 'light' ? 'dark' : 'light')),
