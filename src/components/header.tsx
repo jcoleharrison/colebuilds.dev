@@ -1,10 +1,18 @@
 import { Box, Drawer, IconButton, Link } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import { linksData } from '../static-data/header-links-data';
+import { useContext } from 'react';
+import { ColorModeContext } from '../color-mode-context';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
+  const colorMode = useContext(ColorModeContext);
+
   const links = linksData.map((link) => (
     <Link
       mx={1.5}
@@ -62,8 +70,17 @@ const Header = () => {
           <img src="/colebuilds-dev.png" alt="Cole Builds" style={{ height: '30px', width: 'auto' }} />
         </Link>
       </Box>
-      <Box display={{ xs: 'none', md: 'block' }}>{links}</Box>
-      <Box display={{ xs: 'block', md: 'none' }}>
+      <Box display={{ xs: 'none', md: 'flex' }} alignItems="center">
+        {links}
+        {/* Dark mode toggle */}
+        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+          {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+      </Box>
+      <Box display={{ xs: 'flex', md: 'none' }} alignItems="center">
+        <IconButton sx={{ mr: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+          {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
         <IconButton onClick={() => setOpen(true)}>
           <MenuIcon />
         </IconButton>

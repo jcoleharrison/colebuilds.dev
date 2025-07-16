@@ -2,6 +2,7 @@ import { Container } from '@mui/material';
 import Header from './components/header';
 import FeaturedBuilds from './components/featured-builds';
 import SearchableTimeline from './components/searchable-timeline';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <FeaturedBuilds />
       <SearchableTimeline />
+      <Footer />
     </Container>
   );
 }
