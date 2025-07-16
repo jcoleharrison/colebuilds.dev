@@ -1,16 +1,26 @@
 import { Container } from '@mui/material';
-import Header from './components/header';
-import FeaturedBuilds from './components/featured-builds';
-import SearchableTimeline from './components/searchable-timeline';
-import Footer from './components/footer';
+import { Suspense, lazy } from 'react';
+
+const Header = lazy(() => import('./components/header'));
+const FeaturedBuilds = lazy(() => import('./components/featured-builds'));
+const SearchableTimeline = lazy(() => import('./components/searchable-timeline'));
+const Footer = lazy(() => import('./components/footer'));
 
 function App() {
   return (
     <Container id="main-content" role="main" style={{ maxWidth: '1000px' }}>
-      <Header />
-      <FeaturedBuilds />
-      <SearchableTimeline />
-      <Footer />
+      <Suspense fallback={null}>
+        <Header />
+      </Suspense>
+      <Suspense fallback={null}>
+        <FeaturedBuilds />
+      </Suspense>
+      <Suspense fallback={null}>
+        <SearchableTimeline />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </Container>
   );
 }
